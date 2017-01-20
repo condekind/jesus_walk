@@ -25,7 +25,7 @@ public class Jesus : MonoBehaviour {
         {
             jumping = true;
             animator.SetBool("Running", false);
-            Vector2 jumpForceUp = new Vector2 (0.0f, 5);
+            Vector2 jumpForceUp = new Vector2 (0.0f, 11.3f);
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForceUp, ForceMode2D.Impulse);
         }
     }
