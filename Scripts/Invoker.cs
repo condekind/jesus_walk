@@ -7,6 +7,7 @@ public class Invoker : MonoBehaviour {
     public GameObject blackSeagull;
     public GameObject whiteSeagull;
     public GameObject crazySeagull;
+    public GameObject bible;
     public float period;
     float TimeInterval = 0.0f;
 
@@ -22,16 +23,19 @@ public class Invoker : MonoBehaviour {
         {
             TimeInterval = 0;
             // Performance friendly code here
-            int rnd = Random.Range(0, 11);
-            if (rnd >= 10)
+            int rnd = Random.Range(0, 12);
+            if (rnd >= 11)
                 Instantiate(crazySeagull, GetComponent<Transform>().position, Quaternion.identity);
             else
-                if (rnd >= 8)
-                Instantiate(blackSeagull, GetComponent<Transform>().position, Quaternion.identity);
+                if (rnd >= 10)
+                Instantiate(bible, GetComponent<Transform>().position, Quaternion.identity);
             else
-                    if (rnd >= 6)
+                    if (rnd >= 8)
                 Instantiate(whiteSeagull, GetComponent<Transform>().position, Quaternion.identity);
             else
+                        if (rnd >= 6)
+                Instantiate(blackSeagull, GetComponent<Transform>().position, Quaternion.identity);
+            else if (rnd >= 4)
                 Instantiate(shark, GetComponent<Transform>().position, Quaternion.identity);
         }
     }

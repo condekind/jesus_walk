@@ -11,6 +11,7 @@ public class Jesus : MonoBehaviour {
 
     public GameObject explosion;
     public GameObject haloShot;
+    public GameControler gc; 
     // Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -80,6 +81,12 @@ public class Jesus : MonoBehaviour {
                 Instantiate(explosion, pos, Quaternion.identity);
                 Destroy(this.gameObject);
             }
+        }
+        if (collider.gameObject.tag == "Bible")
+        {
+            //Add a point
+            Destroy(collider.gameObject);
+            gc.addPoint(1);
         }
     }
 
