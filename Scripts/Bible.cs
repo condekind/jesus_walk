@@ -8,9 +8,9 @@ public class Bible : MonoBehaviour {
 	void Start () {
         Vector2 jumpForceUp;
         if (Random.Range(0, 2) >= 1)
-            jumpForceUp = new Vector2(-8.0f, 0.2f);
+            jumpForceUp = new Vector2(-14.0f, 0.2f);
         else
-            jumpForceUp = new Vector2(-8.0f, 0.7f);
+            jumpForceUp = new Vector2(-14.0f, 1.1f);
 		this.GetComponent<Rigidbody2D> ().AddForce (jumpForceUp, ForceMode2D.Impulse);
 	}
 	

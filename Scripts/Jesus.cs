@@ -12,6 +12,10 @@ public class Jesus : MonoBehaviour {
     public GameObject explosion;
     public GameObject haloShot;
     public GameControler gc; 
+
+    //Shoting
+    public float fireRate = 0.7f;
+    private float nextFire = 0.0f;
     // Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -46,6 +50,7 @@ public class Jesus : MonoBehaviour {
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            gc.restart();
         }
     }
     public void slide()
@@ -74,25 +79,31 @@ public class Jesus : MonoBehaviour {
                 Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
                 Instantiate(explosion, pos, Quaternion.identity);
                 Destroy(collider.gameObject);
+                gc.addPoint(1);
             }
             else
             {
                 Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
                 Instantiate(explosion, pos, Quaternion.identity);
                 Destroy(this.gameObject);
+                gc.restart();
             }
         }
         if (collider.gameObject.tag == "Bible")
         {
             //Add a point
             Destroy(collider.gameObject);
-            gc.addPoint(1);
+            gc.addPoint(3);
         }
     }
 
     public void shotHalo()
     {
-        Instantiate(haloShot, GetComponent<Rigidbody2D>().position, Quaternion.identity);
+        if(Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(haloShot, GetComponent<Rigidbody2D>().position, Quaternion.identity);
+        }
     }
 
 }

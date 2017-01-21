@@ -15,12 +15,15 @@ public class Seagull : MonoBehaviour {
 
     public GameObject explosion;
     private float velocityX;
+
+    public GameControler gc;
 	// Use this for initialization
 	void Start () {
 	  velocityX = Random.Range(-2.5f, -1);
         higherPos = Random.Range(7, 9);
 
         jump = 0;	
+        gc = GameObject.Find("Invoker").GetComponent<GameControler>();
 	}
 	
 	// Update is called once per frame
@@ -66,6 +69,7 @@ public class Seagull : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Halo")
         {
+            gc.addPoint(1);
             Vector3 pos = new Vector3(collision.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collision.gameObject);
