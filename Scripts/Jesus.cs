@@ -17,13 +17,38 @@ public class Jesus : MonoBehaviour {
     public float fireRate = 0.7f;
     private float nextFire = 0.0f;
     // Use this for initialization
+    float speed  = 0.1f;
+    private bool noInput = true;
 	void Start () {
         animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            // Get movement of the finger since last frame
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
+
+            if (touchDeltaPosition.x > 2 && noInput)
+            {
+                shotHalo();
+            noInput = false;
+            }
+            else if (touchDeltaPosition.y > 2 && noInput)
+            {
+                jump();
+            noInput = false;
+            }
+            else if (touchDeltaPosition.y < 2 && noInput)
+            {
+                slide();
+            noInput = false;
+            }
+        }
+        else
+            noInput = true;
 	}
 
     public void jump()
