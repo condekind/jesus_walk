@@ -47,7 +47,7 @@ public class Shark : MonoBehaviour {
             if (gameObject.transform.position.y < higherPos)
             {
                 float dist = 8 - gameObject.transform.position.y;
-                Vector2 force = new Vector2(0, 0.045f * dist);
+                Vector2 force = new Vector2(0, 0.035f * dist);
                 this.GetComponent<Rigidbody2D>().AddForce(force);
             }
 

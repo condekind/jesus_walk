@@ -44,6 +44,7 @@ public class Jesus : MonoBehaviour {
             Vector3 pos = new Vector3(collision.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
     public void slide()
@@ -67,9 +68,18 @@ public class Jesus : MonoBehaviour {
     {
         if(collider.gameObject.tag == "Shark")
         {
-            Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
-            Instantiate(explosion, pos, Quaternion.identity);
-            Destroy(collider.gameObject);
+            if (sliding)
+            {
+                Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+                Instantiate(explosion, pos, Quaternion.identity);
+                Destroy(collider.gameObject);
+            }
+            else
+            {
+                Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+                Instantiate(explosion, pos, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
         }
     }
 
