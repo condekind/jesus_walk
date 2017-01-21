@@ -15,7 +15,7 @@ public class Ship : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Vector2 jumpForceUp = new Vector2(-11.0f, 0.1f);
+        Vector2 jumpForceUp = new Vector2(-11.0f, 0.0f);
         this.GetComponent<Rigidbody2D>().AddForce(jumpForceUp, ForceMode2D.Impulse);
 
         gc = GameObject.Find("Invoker").GetComponent<GameControler>();
@@ -28,7 +28,8 @@ public class Ship : MonoBehaviour
         if (TimeInterval >= period)
         {
             TimeInterval = 0;
-            Instantiate(rocket, gameObject.GetComponent<Transform>().position,  Quaternion.Euler(new Vector3(0, 0, 85)));
+            Vector3 betterPosition = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y - 0.5f, gameObject.GetComponent<Transform>().position.z);
+            Instantiate(rocket, betterPosition,  Quaternion.Euler(new Vector3(0, 0, 90)));
         }
     }
 

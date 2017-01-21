@@ -129,7 +129,9 @@ public class Jesus : MonoBehaviour {
         if(Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(haloShot, GetComponent<Rigidbody2D>().position, Quaternion.identity);
+
+            Vector3 betterPosition = new Vector3(gameObject.GetComponent<Transform>().position.x, gameObject.GetComponent<Transform>().position.y - 0.7f, gameObject.GetComponent<Transform>().position.z+0.1f);
+            Instantiate(haloShot, betterPosition, Quaternion.identity);
         }
     }
 
