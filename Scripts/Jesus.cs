@@ -52,6 +52,14 @@ public class Jesus : MonoBehaviour {
             Destroy(this.gameObject);
             gc.restart();
         }
+        if(collision.gameObject.tag == "Ship")
+        {
+            Vector3 pos = new Vector3(collision.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+            Instantiate(explosion, pos, Quaternion.identity);
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+            gc.restart();
+        }
     }
     public void slide()
     {

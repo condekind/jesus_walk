@@ -8,6 +8,8 @@ public class Invoker : MonoBehaviour {
     public GameObject whiteSeagull;
     public GameObject crazySeagull;
     public GameObject bible;
+    public GameObject ship;
+
     public float period;
     float TimeInterval = 0.0f;
 
@@ -22,8 +24,11 @@ public class Invoker : MonoBehaviour {
         if (TimeInterval >= 1 + Random.Range(0.2f, 1))
         {
             TimeInterval = 0;
+            Vector2 savePosition = new Vector2(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + 1);
             // Performance friendly code here
-            int rnd = Random.Range(0, 12);
+            int rnd = Random.Range(0, 14);
+            if (rnd >= 12)
+                Instantiate(ship, savePosition, Quaternion.identity);
             if (rnd >= 11)
                 Instantiate(crazySeagull, GetComponent<Transform>().position, Quaternion.identity);
             else
