@@ -102,7 +102,7 @@ public int upDown = 0;
             sliding = true;
             animator.SetBool("Running", true);
             animator.SetBool("Sliding", true);
-            Invoke("stopSlide", 1.5f);
+            Invoke("stopSlide", 0.8f);
         }
     }
     private void stopSlide()

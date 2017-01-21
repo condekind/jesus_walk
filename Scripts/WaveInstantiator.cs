@@ -11,8 +11,11 @@ public class WaveInstantiator : MonoBehaviour {
     float TimeInterval = 0.0f;
 
     public float yPos = 0.0f;
+    private int rnd;
 	// Use this for initialization
 	void Start () {
+        Random.seed = (int)System.DateTime.Now.Ticks;
+        this.rnd = Random.Range(0, 4);
 		
 	}
 
@@ -23,11 +26,14 @@ public class WaveInstantiator : MonoBehaviour {
         if (TimeInterval >= period)
         {
             TimeInterval = 0;
-            Vector3 savePosition = new Vector3(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y+yPos , GetComponent<Transform>().position.z);
-            int rnd = Random.Range(0, 4);
-            if (rnd >= 3)
+            Vector3 savePosition = new Vector3(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + yPos, GetComponent<Transform>().position.z);
+
+            if (this.rnd >= 3)
+            {
                 Instantiate(wave1, savePosition, Quaternion.identity);
-            else if (rnd >= 2)
+                this.wave1.GetComponent<Animator>().speed = 5.0f;
+            }
+            else if (this.rnd >= 2)
                 Instantiate(wave2, savePosition, Quaternion.identity);
             else
                 Instantiate(wave3, savePosition, Quaternion.identity);

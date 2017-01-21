@@ -12,6 +12,8 @@ public class Wave : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (gameObject.transform.position.x < -19 || gameObject.transform.position.x > 19)
+            Destroy(this.gameObject);
 	}
+
 }
