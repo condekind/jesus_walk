@@ -103,6 +103,25 @@ public class Jesus : MonoBehaviour {
             Destroy(collider.gameObject);
             gc.addPoint(3);
         }
+        if (collider.gameObject.tag == "Rocket")
+        {
+            if (!sliding)
+            {
+                Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+                Instantiate(explosion, pos, Quaternion.identity);
+                Destroy(collider.gameObject);
+                Destroy(this.gameObject);
+                gc.restart();
+            }
+            else
+            {
+                Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+                Instantiate(explosion, pos, Quaternion.identity);
+ 
+                Destroy(collider.gameObject);
+                gc.addPoint(0);
+            }
+        }
     }
 
     public void shotHalo()

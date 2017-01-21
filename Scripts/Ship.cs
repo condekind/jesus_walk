@@ -8,10 +8,14 @@ public class Ship : MonoBehaviour
 
     private GameControler gc;
     public GameObject explosion;
+    public float period;
+    float TimeInterval = 0.0f;
+
+    public GameObject rocket;
     // Use this for initialization
     void Start()
     {
-        Vector2 jumpForceUp = new Vector2(-14.0f, 0.1f);
+        Vector2 jumpForceUp = new Vector2(-11.0f, 0.1f);
         this.GetComponent<Rigidbody2D>().AddForce(jumpForceUp, ForceMode2D.Impulse);
 
         gc = GameObject.Find("Invoker").GetComponent<GameControler>();
@@ -20,7 +24,12 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        TimeInterval += Time.deltaTime;
+        if (TimeInterval >= period)
+        {
+            TimeInterval = 0;
+            Instantiate(rocket, gameObject.GetComponent<Transform>().position,  Quaternion.Euler(new Vector3(0, 0, 85)));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

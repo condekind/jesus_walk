@@ -24,7 +24,7 @@ public class Invoker : MonoBehaviour {
         if (TimeInterval >= 1 + Random.Range(0.2f, 1))
         {
             TimeInterval = 0;
-            Vector2 savePosition = new Vector2(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + 1);
+            Vector3 savePosition = new Vector3(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + 1, -1.6f);
             // Performance friendly code here
             int rnd = Random.Range(0, 14);
             if (rnd >= 12)

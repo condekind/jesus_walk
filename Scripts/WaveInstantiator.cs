@@ -21,7 +21,7 @@ public class WaveInstantiator : MonoBehaviour {
         if (TimeInterval >= period)
         {
             TimeInterval = 0;
-            Vector3 savePosition = new Vector3(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + 1, GetComponent<Transform>().position.z);
+            Vector3 savePosition = new Vector3(GetComponent<Transform>().position.x - 2, GetComponent<Transform>().position.y + 1.27f, GetComponent<Transform>().position.z);
             int rnd = Random.Range(0, 4);
             if (rnd >= 3)
                 Instantiate(wave1, savePosition, Quaternion.identity);
