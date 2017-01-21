@@ -10,6 +10,7 @@ public class Jesus : MonoBehaviour {
     private float slidingTime = 0.0f;
 
     public GameObject explosion;
+    public GameObject haloShot;
     // Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -70,6 +71,11 @@ public class Jesus : MonoBehaviour {
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collider.gameObject);
         }
+    }
+
+    public void shotHalo()
+    {
+        Instantiate(haloShot, GetComponent<Rigidbody2D>().position, Quaternion.identity);
     }
 
 }

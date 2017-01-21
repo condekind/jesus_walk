@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Seagull : MonoBehaviour {
+public class CrazySeagull : MonoBehaviour {
     private bool movement=false;
 
     private float jump = 0;
@@ -13,8 +12,9 @@ public class Seagull : MonoBehaviour {
     
     private float forceYMicro;
 
-    public GameObject explosion;
     private float velocityX;
+
+    public GameObject explosion;
 	// Use this for initialization
 	void Start () {
 	  velocityX = Random.Range(-2.5f, -1);
@@ -49,7 +49,7 @@ public class Seagull : MonoBehaviour {
                 if (gameObject.transform.position.y < higherPos)
                 {
                     float dist = 8 - gameObject.transform.position.y;
-                    Vector2 force = new Vector2(0, 0.4f*(dist*dist));
+                    Vector2 force = new Vector2(0, 0.6f*(dist*dist));
                     this.GetComponent<Rigidbody2D>().AddForce(force);
                 }
                 

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Invoker : MonoBehaviour {
     public GameObject shark;
-    public GameObject seagull;
+    public GameObject blackSeagull;
+    public GameObject whiteSeagull;
+    public GameObject crazySeagull;
     public float period;
     float TimeInterval = 0.0f;
 
@@ -20,9 +22,15 @@ public class Invoker : MonoBehaviour {
         {
             TimeInterval = 0;
             // Performance friendly code here
-            int rnd = Random.Range(0, 2);
-            if (rnd >= 1)
-                Instantiate(seagull, GetComponent<Transform>().position, Quaternion.identity);
+            int rnd = Random.Range(0, 11);
+            if (rnd >= 10)
+                Instantiate(crazySeagull, GetComponent<Transform>().position, Quaternion.identity);
+            else
+                if (rnd >= 8)
+                Instantiate(blackSeagull, GetComponent<Transform>().position, Quaternion.identity);
+            else
+                    if (rnd >= 6)
+                Instantiate(whiteSeagull, GetComponent<Transform>().position, Quaternion.identity);
             else
                 Instantiate(shark, GetComponent<Transform>().position, Quaternion.identity);
         }
