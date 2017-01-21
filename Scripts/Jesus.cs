@@ -9,6 +9,7 @@ public class Jesus : MonoBehaviour {
     private bool sliding = false;
     private float slidingTime = 0.0f;
 
+    public GameObject explosion;
     // Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
@@ -52,4 +53,14 @@ public class Jesus : MonoBehaviour {
         sliding = false;
         CancelInvoke("stopSlide");
     }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag == "Shark")
+        {
+            Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+            Instantiate(explosion, pos, Quaternion.identity);
+            Destroy(collider.gameObject);
+        }
+    }
+
 }
