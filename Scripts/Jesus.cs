@@ -33,8 +33,17 @@ public class Jesus : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
+        {
             jumping = false;
             animator.SetBool("Running", true);
+        }
+
+        if (collision.gameObject.tag == "Seagull")
+        {
+            Vector3 pos = new Vector3(collision.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
+            Instantiate(explosion, pos, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
     }
     public void slide()
     {

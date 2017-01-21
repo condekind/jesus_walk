@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Invoker : MonoBehaviour {
-    public GameObject instantiable;
+    public GameObject shark;
+    public GameObject seagull;
     public float period;
     float TimeInterval = 0.0f;
 
@@ -19,7 +20,11 @@ public class Invoker : MonoBehaviour {
         {
             TimeInterval = 0;
             // Performance friendly code here
-            Instantiate(instantiable, GetComponent<Transform>().position, Quaternion.identity);
+            int rnd = Random.Range(0, 2);
+            if (rnd >= 1)
+                Instantiate(seagull, GetComponent<Transform>().position, Quaternion.identity);
+            else
+                Instantiate(shark, GetComponent<Transform>().position, Quaternion.identity);
         }
     }
 }
