@@ -84,6 +84,7 @@ public int upDown = 0;
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            gc.killmePlease();
             gc.restart();
         }
         if(collision.gameObject.tag == "Ship")
@@ -92,6 +93,7 @@ public int upDown = 0;
             Instantiate(explosion, pos, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            gc.killmePlease();
             gc.restart();
         }
     }
@@ -128,6 +130,7 @@ public int upDown = 0;
                 Vector3 pos = new Vector3(collider.gameObject.GetComponent<Rigidbody2D>().position.x + Random.Range(-1.5f, 0.5f), GetComponent<Rigidbody2D>().position.y + Random.Range(-0.5f, 0.5f), -2.0f);
                 Instantiate(explosion, pos, Quaternion.identity);
                 Destroy(this.gameObject);
+                gc.killmePlease();
                 gc.restart();
             }
         }
@@ -135,7 +138,7 @@ public int upDown = 0;
         {
             //Add a point
             Destroy(collider.gameObject);
-            gc.addPoint(3);
+            gc.addPoint(4);
         }
         if (collider.gameObject.tag == "Rocket")
         {
@@ -145,6 +148,7 @@ public int upDown = 0;
                 Instantiate(explosion, pos, Quaternion.identity);
                 Destroy(collider.gameObject);
                 Destroy(this.gameObject);
+                gc.killmePlease();
                 gc.restart();
             }
             else
@@ -168,5 +172,5 @@ public int upDown = 0;
             Instantiate(haloShot, betterPosition, Quaternion.identity);
         }
     }
-
+    
 }
