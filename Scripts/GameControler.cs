@@ -10,6 +10,8 @@ public class GameControler : MonoBehaviour {
     private Text pointText;
     private Text recordText;
     private GameObject restartGame;
+
+    public GameObject ghosts;
 	// Use this for initialization
 	void Start () {
 	pointText = (Text) GameObject.Find("PointText").GetComponent<Text>();
@@ -19,6 +21,9 @@ public class GameControler : MonoBehaviour {
         recordText = (Text)GameObject.Find("RecordText").GetComponent<Text>();
         recordText.text = "Record: " + PlayerPrefs.GetInt("Record");
         recordText.gameObject.SetActive(false);
+
+        ghosts = GameObject.Find("Ghosts");
+        ghosts.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -34,6 +39,7 @@ public class GameControler : MonoBehaviour {
     {
         //Do what ever you want before retarting
         restartGame.SetActive(true);
+        ghosts.SetActive(true);
     }
 
     public void finallyRestart()
