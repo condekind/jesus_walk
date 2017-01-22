@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: a6a96a8e8a982ef44b0b2172c288a7e4
-timeCreated: 1485051872
+guid: f60201d8b9dc575438666a939037754c
+timeCreated: 1485051512
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: menu_bg_img_0
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,13 +34,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 120
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -77,20 +76,7 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: menu_bg_img_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1908
-        height: 1053
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
