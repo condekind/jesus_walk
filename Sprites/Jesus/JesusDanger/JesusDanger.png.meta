@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 496f07b652c34cd4cb4587ebf206a01c
-timeCreated: 1485049817
+guid: e76800669d75fbc4fb8345c396f34d47
+timeCreated: 1485047541
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: start_0
+    21300000: JesusDanger_0
+    21300002: JesusDanger_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -40,7 +41,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 39, y: 110, z: 38, w: 101}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -79,13 +80,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: start_0
+      name: JesusDanger_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 112
-        width: 320
-        height: 184
+        x: 0
+        y: 0
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: JesusDanger_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
