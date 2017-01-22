@@ -52,6 +52,6 @@ public class GameControler : MonoBehaviour {
             PlayerPrefs.SetInt("Record", points);
 
         recordText.gameObject.SetActive(true);
-        recordText.text = "Record: " + PlayerPrefs.GetInt("Score");
+        recordText.text = "Record: " + PlayerPrefs.GetInt("Record");
     }
 }
